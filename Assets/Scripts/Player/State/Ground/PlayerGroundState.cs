@@ -51,5 +51,9 @@ public class PlayerGroundedState : PlayerBaseState
         stateMachine.ChangeState(stateMachine.WalkState);
     }
 
+    protected virtual void OnRun()
+    {
+        stateMachine.ChangeState(stateMachine.RuntState);
+    }
 
 }

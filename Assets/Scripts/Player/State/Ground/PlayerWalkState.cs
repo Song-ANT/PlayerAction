@@ -24,6 +24,7 @@ public class PlayerWalkState : PlayerGroundedState
 
     protected override void OnRunStarted(InputAction.CallbackContext context)
     {
+        if (stateMachine.MovementSpeedModifier == 0) return;
         base.OnRunStarted(context);
         stateMachine.ChangeState(stateMachine.RuntState);
     }

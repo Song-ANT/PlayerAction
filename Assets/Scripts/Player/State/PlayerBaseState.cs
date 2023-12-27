@@ -54,17 +54,22 @@ public class PlayerBaseState : IState
     {
         PlayerInput input = stateMachine.Player.Input;
         input.PlayerActions.Movement.canceled += OnMovementCanceled;
-        input.PlayerActions.Run.started += OnRunStarted;
+        input.PlayerActions.Run.performed += OnRunStarted;
+        input.PlayerActions.Run.canceled += OnRunCanceled;
     }
 
     private void RemoveInputActionsCallbacks()
     {
         PlayerInput input = stateMachine.Player.Input;
         input.PlayerActions.Movement.canceled -= OnMovementCanceled;
-        input.PlayerActions.Run.started -= OnRunStarted;
+        input.PlayerActions.Run.canceled -= OnRunStarted;
+        input.PlayerActions.Run.canceled -= OnRunCanceled;
+
     }
 
     
+
+
     #endregion
 
     #region Override
@@ -73,6 +78,9 @@ public class PlayerBaseState : IState
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
+    {
+    }
+    protected virtual void OnRunCanceled(InputAction.CallbackContext context)
     {
     }
 
