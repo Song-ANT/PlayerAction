@@ -30,6 +30,13 @@ public class PlayerGroundedState : PlayerBaseState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
+        if(!stateMachine.Player.Controller.isGrounded
+            && stateMachine.Player.Controller.velocity.y < Physics.gravity.y * Time.fixedDeltaTime)
+        {
+            stateMachine.ChangeState(stateMachine.FallState);
+            return;
+        }
     }
     #endregion
 
@@ -54,6 +61,11 @@ public class PlayerGroundedState : PlayerBaseState
     protected virtual void OnRun()
     {
         stateMachine.ChangeState(stateMachine.RuntState);
+    }
+
+    protected override void OnJumpStarted(InputAction.CallbackContext context)
+    {
+        stateMachine.ChangeState(stateMachine.JumpState);
     }
 
 }

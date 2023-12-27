@@ -56,6 +56,8 @@ public class PlayerBaseState : IState
         input.PlayerActions.Movement.canceled += OnMovementCanceled;
         input.PlayerActions.Run.performed += OnRunStarted;
         input.PlayerActions.Run.canceled += OnRunCanceled;
+
+        input.PlayerActions.Jump.started += OnJumpStarted;
     }
 
     private void RemoveInputActionsCallbacks()
@@ -65,9 +67,12 @@ public class PlayerBaseState : IState
         input.PlayerActions.Run.canceled -= OnRunStarted;
         input.PlayerActions.Run.canceled -= OnRunCanceled;
 
+        input.PlayerActions.Jump.started -= OnJumpStarted;
+
+
     }
 
-    
+
 
 
     #endregion
@@ -81,6 +86,9 @@ public class PlayerBaseState : IState
     {
     }
     protected virtual void OnRunCanceled(InputAction.CallbackContext context)
+    {
+    }
+    protected virtual void OnJumpStarted(InputAction.CallbackContext context)
     {
     }
 
@@ -105,7 +113,9 @@ public class PlayerBaseState : IState
     {
         float movementSpeed = GetMovemenetSpeed();
         stateMachine.Player.Controller.Move(
-            (movementDirection * movementSpeed) * Time.deltaTime
+            ((movementDirection * movementSpeed)
+            + stateMachine.Player.ForceReceiver.Movement)
+            * Time.deltaTime
             );
     }
 
