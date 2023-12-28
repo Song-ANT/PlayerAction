@@ -16,6 +16,7 @@ public class PlayerAnimationData
     [SerializeField] private string fallName = "Fall";
 
     [SerializeField] private string attackName = "@Attack";
+    [SerializeField] private string baseAttackName = "BaseAttack";
     [SerializeField] private string comboAttackName = "ComboAttack";
 
 
@@ -29,6 +30,7 @@ public class PlayerAnimationData
     public int fallHash { get; private set; }
 
     public int AttackHash { get; private set; }
+    public int BaseAttackHash { get; private set; }
     public int ComboAttackHash { get; private set; }
 
     public void Initialize()
@@ -43,6 +45,7 @@ public class PlayerAnimationData
         fallHash = Animator.StringToHash(fallName);
 
         AttackHash = Animator.StringToHash(attackName);
+        BaseAttackHash = Animator.StringToHash(baseAttackName);
         ComboAttackHash = Animator.StringToHash(comboAttackName);
     }
 }

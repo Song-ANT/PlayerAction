@@ -26,16 +26,16 @@ MonoBehaviour:
       <ComboTransitionTime>k__BackingField: 0.5
       <ForceTransitionTime>k__BackingField: 0.1
       <Force>k__BackingField: 1
-      <Damage>k__BackingField: 5
+      <Damage>k__BackingField: 30
     - <AttackName>k__BackingField: "\uAE30\uBCF8 2\uD0C0"
       <ComboStateIndex>k__BackingField: 2
       <ComboTransitionTime>k__BackingField: 0.5
       <ForceTransitionTime>k__BackingField: 0.2
       <Force>k__BackingField: 2
-      <Damage>k__BackingField: 5
+      <Damage>k__BackingField: 30
     - <AttackName>k__BackingField: "\uAE30\uBCF8 3\uD0C0"
       <ComboStateIndex>k__BackingField: -1
       <ComboTransitionTime>k__BackingField: 0.5
       <ForceTransitionTime>k__BackingField: 0.1
       <Force>k__BackingField: 3
-      <Damage>k__BackingField: 10
+      <Damage>k__BackingField: 40

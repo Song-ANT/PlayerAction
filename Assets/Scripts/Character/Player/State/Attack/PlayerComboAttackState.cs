@@ -75,14 +75,19 @@ public class PlayerComboAttackState : PlayerAttackState
         }
         else
         {
+            Player player = stateMachine.Player;
             if (alreadyAppliedCombo)
             {
                 stateMachine.ComboIndex = attackInfoData.ComboStateIndex;
                 stateMachine.ChangeState(stateMachine.ComboAttackState);
+                player.Weapon.SetAttack(attackInfoData.Damage, attackInfoData.Force);
+                player.Weapon.gameObject.SetActive(true);
             }
             else
             {
                 stateMachine.ChangeState(stateMachine.IdleState);
+                player.Weapon.gameObject.SetActive(false);
+
             }
         }
     }
